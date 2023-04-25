@@ -12,6 +12,12 @@ on:
     branches:
       - main
       - upgrade/*
+  workflow_dispatch:
+    inputs:
+      debug:
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   build:
@@ -21,6 +27,4 @@ jobs:
 
       - name: Run a one-line script
         run: |
-          VAR=$(openssl rand -hex 10)
-          echo $VAR
-          echo "123" | uniq | printf "%s\n"
+          echo "${{ inputs.debug }}"

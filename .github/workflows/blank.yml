@@ -28,6 +28,7 @@ jobs:
       - name: Run a one-line script
         run: |
           echo "${{ inputs.debug }}"
+          echo "${{ github.run_id }}-${{ github.run_attempt }}"
 
       - name: Check debug
         if: inputs.debug == '' || inputs.debug == 'false'

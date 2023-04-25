@@ -28,3 +28,8 @@ jobs:
       - name: Run a one-line script
         run: |
           echo "${{ inputs.debug }}"
+
+      - name: Check debug
+        if: inputs.debug == '' || inputs.debug == 'false'
+        run: |
+          echo "Debug is disabled"
